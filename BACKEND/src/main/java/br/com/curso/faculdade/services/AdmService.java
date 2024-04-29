@@ -1,9 +1,12 @@
 package br.com.curso.faculdade.services;
 
+import java.text.ParseException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import br.com.curso.faculdade.entities.Adm;
@@ -13,6 +16,13 @@ import br.com.curso.faculdade.repositories.AdmRepository;
 public class AdmService {
     @Autowired
     AdmRepository admRepository;
+
+    @Bean
+    public void instanciarAdm() throws ParseException{
+        Adm adm1= new Adm("Bear", "2031");
+
+        admRepository.saveAll(Arrays.asList(adm1));
+    }
 
     public List<Adm> findAll() {
         List<Adm> pessoa = admRepository.findAll();

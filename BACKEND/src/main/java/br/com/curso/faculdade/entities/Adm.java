@@ -30,6 +30,11 @@ public class Adm implements Serializable{
         this.senha = senha;
     }
 
+    public Adm(String nome, String senha) {
+        this.nome = nome;
+        this.senha = senha;
+    }
+
 
     public int getId() {
         return id;
