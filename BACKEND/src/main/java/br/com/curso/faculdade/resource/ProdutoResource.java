@@ -44,9 +44,9 @@ public class ProdutoResource {
     }
 
     @GetMapping("/tipo/{tipo}")
-    public ResponseEntity<Produto> findByTipo(@PathVariable Integer tipo){
-        Produto produto = produtoService.findByTipo(tipo);
-        return ResponseEntity.ok().body(produto);
+    public List<Produto> findByTipo(@PathVariable Integer tipo){
+        List<Produto> produto = produtoService.findByTipo(tipo);
+        return produto;
     }
 
 

@@ -35,6 +35,10 @@ export class ProdutoService {
 
   }
 
+  buscarProdutoTipo(tipo? : number): Observable <Produto[]>{
+    return this.http.get<Produto[]>(`${environment.urlApi}/produto/tipo/${tipo}`);
+  }
+
   atualizarProduto(produto?:Produto, id?: number) : Observable<boolean>{
     if(!produto) return of(false);
     return this.http.put<boolean>(`${environment.urlApi}/produto/${id}`, produto);

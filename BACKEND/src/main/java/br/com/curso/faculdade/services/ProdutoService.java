@@ -29,9 +29,9 @@ public class ProdutoService {
         return produto.orElse(null);
     }
 
-    public Produto findByTipo(Integer tipo) {
-        Optional<Produto> produto = produtoRepository.findById(tipo);
-        return produto.orElse(null);
+    public List<Produto> findByTipo(Integer tipo) {
+        List<Produto> produto = produtoRepository.findByTipo(tipo);
+        return produto;
     }
     
 
@@ -45,7 +45,7 @@ public class ProdutoService {
             alterado.setNome(produto.getNome());
             alterado.setPreco(produto.getPreco());
             alterado.setDescricao(produto.getDescricao());
-            
+            alterado.setTipo(produto.getTipo());
             return produtoRepository.save(alterado);
         }
         return null;
