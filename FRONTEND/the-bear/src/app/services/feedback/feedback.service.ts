@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Feedback } from '../../model/feedbak';
+import { Feedback } from 'src/app/model/feedback';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { environment } from '../../../environments/environment.development';
 import { Observable, of } from 'rxjs';

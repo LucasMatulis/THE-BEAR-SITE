@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Denuncia } from '../../model/denuncia';
+import { Denuncia } from 'src/app/model/denuncia';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { environment } from '../../../environments/environment.development';
 import { Observable, of } from 'rxjs';
