@@ -3,4 +3,5 @@ export interface Denuncia {
     nome:string;
     texto:string;
     dataCriacao:Date;
+    resolvido:boolean;
   }

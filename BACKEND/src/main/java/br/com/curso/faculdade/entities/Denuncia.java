@@ -30,17 +30,24 @@ public class Denuncia implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "dataCriacao")
     private Date dataCriacao;
+    
+    @Column(name = "Resolvido")
+    private boolean resolvido;
 
-    public Denuncia() {}
+    public Denuncia() {
+        this.resolvido = false;
+    }
 
     public Denuncia(int id, String nome, String texto) {
         this.id = id;
         this.nome = nome;
         this.texto = texto;
+        this.resolvido = false;
     }
 
     public Denuncia(String texto) {
         this.texto = texto;
+        this.resolvido = false;
     }
 
     @PrePersist
@@ -78,5 +85,13 @@ public class Denuncia implements Serializable {
 
     public void setDataCriacao(Date dataCriacao) {
         this.dataCriacao = dataCriacao;
+    }
+
+    public boolean isResolvido() {
+        return resolvido;
+    }
+
+    public void setResolvido(boolean resolvido) {
+        this.resolvido = resolvido;
     }
 }
