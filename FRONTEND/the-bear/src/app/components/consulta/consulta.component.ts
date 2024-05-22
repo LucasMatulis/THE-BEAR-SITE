@@ -12,9 +12,6 @@ import { catchError, of } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
 
-
-
-
 @Component({
   selector: 'app-consulta',
   templateUrl: './consulta.component.html',
@@ -27,19 +24,16 @@ import { FormsModule } from '@angular/forms';
     MatSortModule
   ],
 })
-
 export class ConsultaComponent implements AfterViewInit {
-  displayedColumns: string[] = ['id', 'nome', 'preco', 'descricao', 'editar'];
+  displayedColumns: string[] = ['id', 'nome', 'preco', 'descricao', 'tipo', 'editar'];
   dataSource = new MatTableDataSource<Produto>();
   termoPesquisa: string = '';
-
 
   constructor(
     private _liveAnnouncer: LiveAnnouncer,
     private router: Router,
     private produtoService: ProdutoService,
     private snackBar : MatSnackBar,
-
   ) {}
 
   @ViewChild(MatSort)
@@ -78,8 +72,7 @@ export class ConsultaComponent implements AfterViewInit {
     this.router.navigateByUrl('/cadastro');
   }
 
-  removerProduto(id:number){
-
+  removerProduto(id:number) {
     if(id==undefined){
       this.snackBar.open("O ID está vazio!", "OK!");
       return;
@@ -88,32 +81,34 @@ export class ConsultaComponent implements AfterViewInit {
     if(id != undefined) this.produtoService.removerProduto(id)
     .subscribe({
       next: (res) => {
-        this.buscarProdutos()
-        if( res ) console.log(res);
-
+        this.buscarProdutos();
+        if(res) console.log(res);
       },
       error: (erro) => {
         console.log(erro);
       }
-    })
+    });
   }
 
   editarProduto(id:number): void {
-
     this.router.navigateByUrl(`/editProduto/${id}`);
   }
 
   pesquisar(): void {
-
-    
     if (this.termoPesquisa.trim() === '') {
-      this.dataSource.filter = ''; 
+      this.dataSource.filter = '';
       this.buscarProdutos();
       return;
     }
 
     this.dataSource.filter = this.termoPesquisa.trim().toLowerCase();
   }
-  
 
+  getTipoDescricao(tipo: number): string {
+    switch(tipo) {
+      case 1: return 'Comida';
+      case 2: return 'Bebidas';
+      default: return 'Outros';
+    }
+  }
 }

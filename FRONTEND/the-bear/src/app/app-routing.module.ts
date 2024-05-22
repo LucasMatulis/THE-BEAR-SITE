@@ -6,6 +6,10 @@ import { ConsultaComponent } from './components/consulta/consulta.component';
 import { LoginComponent } from './components/login/login.component';
 import { EditarProdutoComponent } from './components/editar-produto/editar-produto.component';
 import { CardapioComponent } from './components/cardapio/cardapio.component';
+import { DenunciaAdmComponent } from './components/denuncia-adm/denuncia-adm.component';
+import { FeedbackAdmComponent } from './components/feedback-adm/feedback-adm.component';
+import { FeedbackComponent } from './components/feedback/feedback.component';
+import { DenunciaComponent } from './components/denuncia/denuncia.component';
 
 const routes: Routes = [
   {
@@ -31,6 +35,22 @@ const routes: Routes = [
   {
     path:"cardapio",
     component: CardapioComponent
+  },
+  {
+    path:"denunciaAdm",
+    component: DenunciaAdmComponent
+  },
+  {
+    path:"feedbackAdm",
+    component: FeedbackAdmComponent
+  },
+  {
+    path:"feedback",
+    component: FeedbackComponent
+  },
+  {
+    path:"denuncia",
+    component: DenunciaComponent
   }
 
 

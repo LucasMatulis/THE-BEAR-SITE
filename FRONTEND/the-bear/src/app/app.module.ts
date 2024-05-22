@@ -21,6 +21,8 @@ import { EditarProdutoComponent } from './components/editar-produto/editar-produ
 import { CardapioComponent } from './components/cardapio/cardapio.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import { DenunciaComponent } from './components/denuncia/denuncia.component';
+import { DenunciaAdmComponent } from './components/denuncia-adm/denuncia-adm.component';
+import { FeedbackAdmComponent } from './components/feedback-adm/feedback-adm.component';
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import { DenunciaComponent } from './components/denuncia/denuncia.component';
     CardapioHomeComponent,
     EditarProdutoComponent,
     FeedbackComponent,
-    DenunciaComponent,    
+    DenunciaComponent,
+    DenunciaAdmComponent,
+    FeedbackAdmComponent,    
   ],
   imports: [
     
