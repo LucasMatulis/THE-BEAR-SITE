@@ -11,27 +11,33 @@ import jakarta.persistence.Id;
 public class FeedBack implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name = "ID")
+    @Column(name = "ID")
     int id;
 
-    @Column (name = "Nome")
+    @Column(name = "Nome")
     String nome;
 
-    @Column (name ="Texto")
+    @Column(name = "Texto")
     String texto;
-    
-    public FeedBack(){}
 
-    public FeedBack(int id,String nome, String texto){
-        this.id=id;
-        this.nome=nome;
-        this.texto=texto;
+    @Column(name = "Nota")
+    Double nota;
+
+    public FeedBack() {}
+
+    public FeedBack(int id, String nome, String texto, Double nota) {
+        this.id = id;
+        this.nome = nome;
+        this.texto = texto;
+        this.nota = nota;
     }
 
-    public FeedBack(String texto){
-        this.texto=texto;
+    public FeedBack(String texto, Double nota) {
+        this.texto = texto;
+        this.nota = nota;
     }
 
     public int getId() {
@@ -56,5 +62,13 @@ public class FeedBack implements Serializable {
 
     public void setTexto(String texto) {
         this.texto = texto;
+    }
+
+    public Double getNota() {
+        return nota;
+    }
+
+    public void setNota(Double nota) {
+        this.nota = nota;
     }
 }
