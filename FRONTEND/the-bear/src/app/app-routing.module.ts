@@ -10,6 +10,7 @@ import { DenunciaAdmComponent } from './components/denuncia-adm/denuncia-adm.com
 import { FeedbackAdmComponent } from './components/feedback-adm/feedback-adm.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import { DenunciaComponent } from './components/denuncia/denuncia.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 const routes: Routes = [
   {
@@ -51,6 +52,10 @@ const routes: Routes = [
   {
     path:"denuncia",
     component: DenunciaComponent
+  },
+  {
+    path:"footer",
+    component: FooterComponent
   }
 
 
