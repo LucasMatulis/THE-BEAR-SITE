@@ -1,0 +1,47 @@
+h1{
+    padding-left: 10px;
+    font-size:  1.2em;
+    border-left: #FFC700 4px solid;
+    margin-bottom: 25px;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border: 1px solid white;
+}
+
+.divPadrao{
+    font-size: 1.5em;
+    margin: 30px;
+}
+
+.footer{
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+    font-family: 'League Spartan', sans-serif;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-size: 0.8em;
+}
+
+
+.info{
+    display: flex;
+    border-bottom: aliceblue 1px solid;
+}
+
+.copy{
+    padding-top: 15px;
+}
+
+.copy > h1{
+    display: flex;
+    align-items: center;
+    font-size: 1em;
+}
