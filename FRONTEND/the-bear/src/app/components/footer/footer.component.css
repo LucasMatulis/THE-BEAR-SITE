@@ -12,6 +12,28 @@ a{
     border: 1px solid white;
 }
 
+.imagens{
+    display: flex;
+    flex: row;
+    justify-content: center;
+    align-items: center;
+}
+
+img{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    max-width: 33px;
+    max-height: 33px;
+}
+
+.informacoes{
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    align-items: top;
+}
+
 .divPadrao{
     font-size: 1.5em;
     margin: 30px;

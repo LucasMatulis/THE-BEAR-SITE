@@ -1,0 +1,40 @@
+
+*{
+    font-size: 20px;
+}
+
+.Header{
+    background-color: black;
+}
+
+#cabecalho-itens {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    justify-content: start;
+    max-width: 1800px;
+    width: 100%;
+    padding-right: 10px;
+}
+
+#cabecalho-opcoes{
+    display: flex;
+    padding-left: 20px;
+    max-width: 300px;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logo {
+    width: 66px;
+    height: 77px;
+}
+
+a{
+    text-decoration: none;
+    color: white    ;
+}
+
+img{
+}

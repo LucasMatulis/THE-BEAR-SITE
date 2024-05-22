@@ -4,8 +4,8 @@
       <form #loginForm="ngForm">
           <input  placeholder="Login" name="usuario" id="usuario" [(ngModel)]="usuario">
           <input type="password" name="senha" id="senha" placeholder="Senha" [(ngModel)]="senha">
-          <div class="wrapper">
-              <input type="submit" value="Login" (click)="verificarAdm()">
+          <div class="wrapper logar">
+              <input class="logar" type="submit" value="Logar" (click)="verificarAdm()">
               <mat-icon>portrait</mat-icon>
           </div>
       </form>
