@@ -4,7 +4,12 @@
 }
 
 .Header{
+    position: fixed;
     background-color: black;
+    width: 100vw;
+    border-bottom: #FFC700 2px solid;
+
+
 }
 
 #cabecalho-itens {
@@ -31,10 +36,9 @@
     height: 77px;
 }
 
-a{
+a, button{
+    border: none;
+    background: none;
     text-decoration: none;
     color: white    ;
-}
-
-img{
 }

@@ -23,6 +23,7 @@ import { FeedbackComponent } from './components/feedback/feedback.component';
 import { DenunciaComponent } from './components/denuncia/denuncia.component';
 import { DenunciaAdmComponent } from './components/denuncia-adm/denuncia-adm.component';
 import { FeedbackAdmComponent } from './components/feedback-adm/feedback-adm.component';
+import { LocalizacaoComponent } from './components/localizacao/localizacao.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { FeedbackAdmComponent } from './components/feedback-adm/feedback-adm.com
     FeedbackComponent,
     DenunciaComponent,
     DenunciaAdmComponent,
-    FeedbackAdmComponent,    
+    FeedbackAdmComponent,
+    LocalizacaoComponent,    
   ],
   imports: [
     
