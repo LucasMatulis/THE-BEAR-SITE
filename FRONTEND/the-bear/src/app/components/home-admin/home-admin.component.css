@@ -1,0 +1,42 @@
+*{
+    overflow: visible;
+}
+.HomeAdmin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    top: 500px;
+    overflow: visible;
+}
+
+.HomeAdmin-conteudo{
+    top: 20px;
+    position: relative;
+    display: flex;
+    border-radius: 20px;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    height: 400px;
+    width: 500px;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 30px;
+}
+
+a:hover{
+    color: #FFC700;
+    cursor: pointer;
+    font-size: 35px;
+    height: 40px;
+    width: 250px;
+    text-align: center;
+    text-justify: center;
+    justify-self: center;
+    align-content: center;
+}
