@@ -2,9 +2,10 @@
     <div id="cabecalho-itens">
         <a routerLink="/"><img id="logo" src="../../../assets/image/urso branco.png" alt="GamblingGuru"></a>
         <div id="cabecalho-opcoes">
-            <a routerLink="/">Início</a>
+            <button (click)="navigateAndScrollToTop()">Home</button>
             <a routerLink="/cardapio">Cardapio</a>
             <button (click)="scrollToBottom()">Contato</button>
+            <button (click)="scrollToTop()">Voltar ao Topo</button>
         </div>
     </div>
 </div>

@@ -5,7 +5,7 @@ import { LandingComponent } from './components/landing/landing.component';
 import { ConsultaComponent } from './components/consulta/consulta.component';
 import { LoginComponent } from './components/login/login.component';
 import { EditarProdutoComponent } from './components/editar-produto/editar-produto.component';
-import { CardapioComponent } from './components/cardapio/cardapio.component';
+import { PaginaCardapioComponent } from './components/pagina-cardapio/pagina-cardapio.component';
 import { DenunciaAdmComponent } from './components/denuncia-adm/denuncia-adm.component';
 import { FeedbackAdmComponent } from './components/feedback-adm/feedback-adm.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
@@ -35,7 +35,7 @@ const routes: Routes = [
   },
   {
     path:"cardapio",
-    component: CardapioComponent
+    component: PaginaCardapioComponent
   },
   {
     path:"denunciaAdm",

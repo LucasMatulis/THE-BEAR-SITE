@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from './app-routing.module';
@@ -24,6 +25,8 @@ import { DenunciaComponent } from './components/denuncia/denuncia.component';
 import { DenunciaAdmComponent } from './components/denuncia-adm/denuncia-adm.component';
 import { FeedbackAdmComponent } from './components/feedback-adm/feedback-adm.component';
 import { LocalizacaoComponent } from './components/localizacao/localizacao.component';
+import { PaginaCardapioComponent } from './components/pagina-cardapio/pagina-cardapio.component';
+import { HomeAdminComponent } from './components/home-admin/home-admin.component';
 
 
 @NgModule({
@@ -40,10 +43,12 @@ import { LocalizacaoComponent } from './components/localizacao/localizacao.compo
     DenunciaComponent,
     DenunciaAdmComponent,
     FeedbackAdmComponent,
-    LocalizacaoComponent,    
+    LocalizacaoComponent,
+    PaginaCardapioComponent,
+    HomeAdminComponent,    
   ],
   imports: [
-    
+    CommonModule,
     ConsultaComponent,
     CardapioComponent,
     MatButtonModule,

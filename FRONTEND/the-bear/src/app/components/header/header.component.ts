@@ -9,12 +9,22 @@ import { filter } from 'rxjs/operators';
 })
 export class HeaderComponent {
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
+
+  scrollToTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  navigateAndScrollToTop(): void {
+    this.router.navigate(['/']).then(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 
   scrollToBottom(): void {
     const currentUrl = this.router.url;
 
-    if (currentUrl !== '/') {
+    if (currentUrl !== '/' && currentUrl !== '/cardapio') {
       // Navigate to the root route and then scroll to the bottom after navigation ends
       this.router.navigate(['/']).then(() => {
         this.performScrollToBottom();

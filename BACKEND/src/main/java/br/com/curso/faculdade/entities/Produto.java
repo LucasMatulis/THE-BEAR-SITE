@@ -25,6 +25,12 @@ public class Produto implements Serializable{
     @Column (name = "Descricao")
     String descricao;
 
+
+    /*
+     * 0 = outros
+     * 1 = comida
+     * 2 =bebida
+     */
     @Column (name = "tipo")
     int tipo;
 
@@ -43,6 +49,13 @@ public class Produto implements Serializable{
         this.id = id;
         this.nome = nome;
         this.preco = preco;
+        this.tipo=tipo;
+    }
+
+    public Produto(String nome, Double preco, String descricao,int tipo) {
+        this.nome = nome;
+        this.preco = preco;
+        this.descricao = descricao;
         this.tipo=tipo;
     }
 

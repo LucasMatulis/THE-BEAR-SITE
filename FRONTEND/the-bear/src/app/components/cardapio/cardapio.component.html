@@ -1,0 +1,103 @@
+<div class="cardapio">
+    <div class="tabela-div comidas">
+        <div class="tabela-texto-imagem">
+            <h2>Comidas</h2>
+            <img id="maismenos" [src]="imagemComidas" alt="" (click)="toggleComidas()">
+        </div>
+        <div *ngIf="mostrarComidas">
+            <table mat-table [dataSource]="comidasDataSource" #sortComida="matSort" matSort (matSortChange)="announceSortChange($event)"
+                class="mat-elevation-z8">
+                <ng-container matColumnDef="nome">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Listar por Nome">
+                        Nome
+                    </th>
+                    <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
+                </ng-container>
+                <!-- Weight Column -->
+                <ng-container matColumnDef="preco">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Listar por Preço">
+                        Preço
+                    </th>
+                    <td mat-cell *matCellDef="let element">R$: {{element.preco}} </td>
+                </ng-container>
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="descricao">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Listar por Descrição">
+                        Descrição
+                    </th>
+                    <td mat-cell *matCellDef="let element"> {{element.descricao}} </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="tabela-div bebidas">
+        <div class="tabela-texto-imagem">
+            <h2>Bebidas</h2>
+            <img id="maismenos" [src]="imagemBebidas" alt="" (click)="toggleBebidas()">
+        </div>
+        <div *ngIf="mostrarBebidas">
+            <table mat-table [dataSource]="bebidasDataSource" #sortBebida="matSort" matSort (matSortChange)="announceSortChange($event)"
+            class="mat-elevation-z8">
+                <ng-container matColumnDef="nome">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Listar por Nome">
+                        Nome
+                    </th>
+                    <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
+                </ng-container>
+                <!-- Weight Column -->
+                <ng-container matColumnDef="preco">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Listar por Preço">
+                        Preço
+                    </th>
+                    <td mat-cell *matCellDef="let element">R$: {{element.preco}} </td>
+                </ng-container>
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="descricao">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Listar por Descrição">
+                        Descrição
+                    </th>
+                    <td mat-cell *matCellDef="let element"> {{element.descricao}} </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="tabela-div outros">
+        <div class="tabela-texto-imagem">
+            <h2>Outros</h2>
+            <img id="maismenos" [src]="imagemOutros" alt="" (click)="toggleOutros()">
+        </div>
+        <div *ngIf="mostrarOutros">
+            <table mat-table [dataSource]="outrosDataSource" #sortOutros="matSort" matSort (matSortChange)="announceSortChange($event)"
+            class="mat-elevation-z8">
+                <ng-container matColumnDef="nome">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Listar por Nome">
+                        Nome
+                    </th>
+                    <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
+                </ng-container>
+                <!-- Weight Column -->
+                <ng-container matColumnDef="preco">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Listar por Preço">
+                        Preço
+                    </th>
+                    <td mat-cell *matCellDef="let element">R$: {{element.preco}} </td>
+                </ng-container>
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="descricao">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Listar por Descrição">
+                        Descrição
+                    </th>
+                    <td mat-cell *matCellDef="let element"> {{element.descricao}} </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+    </div>
+</div>

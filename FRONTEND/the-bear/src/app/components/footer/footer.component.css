@@ -43,13 +43,15 @@ img{
     background-color: black;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     color: aliceblue;
     font-family: 'League Spartan', sans-serif;
     padding-top: 30px;
     padding-bottom: 30px;
     font-size: 0.8em;
+    overflow: hidden;
+    height: 100%
 }
 
 
