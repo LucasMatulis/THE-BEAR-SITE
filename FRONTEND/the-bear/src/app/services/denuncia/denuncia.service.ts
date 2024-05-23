@@ -14,7 +14,6 @@ export class DenunciaService {
 
 
   inserirDenuncia(denuncia?: Denuncia):Observable <boolean>{
-
     if(!denuncia) return of(false);
     return this.http.post<boolean>(`${environment.urlApi}/denuncia`, denuncia)
   }
