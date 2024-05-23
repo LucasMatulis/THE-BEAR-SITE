@@ -1,7 +1,8 @@
 <div class="body">
-<app-header *ngIf="cliente"></app-header>
-<app-header-adm *ngIf="adm"></app-header-adm>
-<div id="espacamento">
-    <router-outlet></router-outlet>
-</div>
+    <app-header *ngIf="cliente"></app-header>
+    <app-header-adm *ngIf="adm"></app-header-adm>
+    <div id="espacamento">
+        <router-outlet></router-outlet>
+    </div>
+    <app-footer *ngIf="cliente"></app-footer>
 </div>
