@@ -1,0 +1,110 @@
+.FeedBackAdm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.FeedBackAdm-Conteudo {
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+    justify-content: start;
+    align-items: center;
+    width: 1400px;
+    height: 600px;
+    color: white;
+}
+
+.tabelas {
+    overflow: scroll;
+    overflow-x: hidden;
+    width: 80%;
+    height: 88%;
+}
+
+.verMais{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 10px;
+    background-color: #131313;
+    color: white;
+    top:5px;
+    right: 5px;
+}
+
+.tabela-linha {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    background-color: #131313;
+    border: #FFC700 2px solid;
+    color: white;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+
+
+.tabela-linha>h2 {
+    padding-top: 15px;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 16px;
+}
+
+#avalizacao {
+    padding-top: 15px;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 16px;
+    display: flex;
+}
+
+#avalizacao>img {
+    padding-top: 5px;
+    padding-left: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+#avalizacao>h2 {
+    font-size: 15px;
+}
+
+
+::-webkit-scrollbar,
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-track { 
+    width: 8px;
+    border: none;
+    background: transparent;
+}
+
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-track-piece,
+::-webkit-scrollbar-corner,
+::-webkit-resizer {
+    display: none;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    background-color: #FFC700;
+}
+
+::-webkit-scrollbar-track {
+    background-image: url("../../../assets/image/scrollFundoEscuro.png");
+    background-repeat: repeat-y;
+    background-size: contain;
+}
+
+#maismenos{
+    height: 20px;
+    width: 20px;
+    padding-bottom: 12px;
+}

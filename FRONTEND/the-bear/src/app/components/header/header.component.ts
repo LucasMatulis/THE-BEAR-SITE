@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatTooltipModule } from '@angular/material/tooltip'; // Import adicionado
 
 @Component({
   selector: 'app-header',
@@ -23,14 +24,12 @@ export class HeaderComponent {
   scrollToBottom(): void {
     const currentUrl = this.router.url;
 
-    if (currentUrl !== '/' && currentUrl !== '/cardapio') {
-      // Navigate to the root route and then scroll to the bottom after navigation ends
+    if (currentUrl === '/' || currentUrl === '/cardapio' || currentUrl === '/feedback' || currentUrl === '/denuncia' || currentUrl === '/adm') {
+      this.performScrollToBottom();
+    } else {
       this.router.navigate(['/']).then(() => {
         this.performScrollToBottom();
       });
-    } else {
-      // Already on the root route, perform the scroll
-      this.performScrollToBottom();
     }
   }
 
