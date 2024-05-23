@@ -11,6 +11,7 @@ import { Produto } from 'src/app/model/produto';
 import { catchError, of } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-consulta',
@@ -21,7 +22,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     MatTableModule, MatIconModule,
     MatPaginatorModule, MatButtonModule,
-    MatSortModule
+    MatSortModule, MatTooltipModule 
   ],
 })
 export class ConsultaComponent implements AfterViewInit {

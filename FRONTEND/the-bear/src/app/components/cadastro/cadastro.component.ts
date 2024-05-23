@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -13,11 +13,15 @@ import { Produto } from 'src/app/model/produto';
 })
 export class CadastroComponent implements OnInit {
 
+  setaAberta: boolean = false;
+
   constructor(
     private produtoService: ProdutoService,
     private snackBar: MatSnackBar,
-    private router: Router
-  ) {}
+    private router: Router,
+    private renderer: Renderer2,
+    private el: ElementRef
+  ) { }
 
   produtos?: Produto[];
   produto: Produto = {
@@ -43,38 +47,38 @@ export class CadastroComponent implements OnInit {
     );
 
     if (produtoExistente) {
-        // Exibe mensagem se o produto já existe
-        this.snackBar.open("Este produto já existe", "OK!");
+      // Exibe mensagem se o produto já existe
+      this.snackBar.open("Este produto já existe", "OK!");
     } else {
-        // Substitui vírgula por ponto no preço e converte para número
-        const precoSanitizado = this.produto.preco.toString().replace(',', '.');
-        const precoNumerico = parseFloat(precoSanitizado);
+      // Substitui vírgula por ponto no preço e converte para número
+      const precoSanitizado = this.produto.preco.toString().replace(',', '.');
+      const precoNumerico = parseFloat(precoSanitizado);
 
-        // Verifica se o nome não é vazio e o preço é maior que 0
-        if (this.produto.nome !== "" && !isNaN(precoNumerico) && precoNumerico > 0) {
-            this.produto.preco = precoNumerico;  // Atualiza o preço do produto
+      // Verifica se o nome não é vazio e o preço é maior que 0
+      if (this.produto.nome !== "" && !isNaN(precoNumerico) && precoNumerico > 0) {
+        this.produto.preco = precoNumerico;  // Atualiza o preço do produto
 
-            // Chama o serviço para inserir o produto
-            this.produtoService.inserirProduto(this.produto).subscribe(
-                (response) => {
-                    this.buscarProdutos();  // Atualiza a lista de produtos
-                    this.snackBar.open("Produto cadastrado!", "OK!");
-                    this.produto={
-                      id: 0,
-                      nome: "",
-                      preco: 0,
-                      descricao: "",
-                      tipo: 0
-                    }
-                },
-                (error) => {
-                    console.log(error);
-                    this.snackBar.open("Erro ao cadastrar produto!", "OK!");
-                }
-            );
-        } else {
-            this.snackBar.open("Nome ou preço do produto inválido!", "OK!");
-        }
+        // Chama o serviço para inserir o produto
+        this.produtoService.inserirProduto(this.produto).subscribe(
+          (response) => {
+            this.buscarProdutos();  // Atualiza a lista de produtos
+            this.snackBar.open("Produto cadastrado!", "OK!");
+            this.produto = {
+              id: 0,
+              nome: "",
+              preco: 0,
+              descricao: "",
+              tipo: 0
+            }
+          },
+          (error) => {
+            console.log(error);
+            this.snackBar.open("Erro ao cadastrar produto!", "OK!");
+          }
+        );
+      } else {
+        this.snackBar.open("Nome ou preço do produto inválido!", "OK!");
+      }
     }
   }
 
@@ -91,4 +95,16 @@ export class CadastroComponent implements OnInit {
         this.produtos = produtos as Produto[];
       });
   }
+
+  rodarSeta(){
+    const setaElement = this.el.nativeElement.querySelector('.select-arrow ');
+    if(!this.setaAberta){
+      this.renderer.setStyle(setaElement, 'transform', 'translateY(50%) rotate(-225deg)');
+      this.setaAberta = true
+    } else {
+      this.renderer.setStyle(setaElement, 'transform', 'translateY(0%) rotate(-45deg)');
+      this.setaAberta = false
+    }
+  }
+
 }

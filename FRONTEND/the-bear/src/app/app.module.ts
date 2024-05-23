@@ -26,7 +26,7 @@ import { FeedbackAdmComponent } from './components/feedback-adm/feedback-adm.com
 import { LocalizacaoComponent } from './components/localizacao/localizacao.component';
 import { PaginaCardapioComponent } from './components/pagina-cardapio/pagina-cardapio.component';
 import { HeaderAdmComponent } from './components/header-adm/header-adm.component';
-
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -46,6 +46,7 @@ import { HeaderAdmComponent } from './components/header-adm/header-adm.component
     HeaderAdmComponent,    
   ],
   imports: [
+    MatTooltipModule,
     CommonModule,
     ConsultaComponent,
     CardapioComponent,

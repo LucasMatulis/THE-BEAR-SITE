@@ -4,18 +4,21 @@
     </div>
     <form action="">
         <div class="inputs">
-            <label>Nome</label>
+            <label>Nome do Produto</label>
             <input type="text" name="nomeprod" id="nomeprod" placeholder="Nome do produto: " [(ngModel)]="produto.nome">
-            <label>Preço</label>
+            <label>Preço do Produto</label>
             <input type="text" name="precoprod" id="precoprod" placeholder="Preço: " [(ngModel)]="produto.preco">
-            <label>Descrição</label>
+            <label>Descrição do Produto</label>
             <input type="text" name="descprod" id="descprod" placeholder="Descrição: " [(ngModel)]="produto.descricao">
-            <label>Tipo</label>
-            <select name="tipoprod" id="tipoprod" [(ngModel)]="produto.tipo">
-                <option value="0">Outros</option>
-                <option value="1">Comida</option>
-                <option value="2">Bebida</option>
-            </select>
+            <label>Qual é o Tipo desse Produto?</label>
+            <div class="wrapper-select">
+                <select name="tipoprod" id="tipoprod" [(ngModel)]="produto.tipo" (click)="rodarSeta()">
+                    <option value="0" (click)="rodarSeta()">Outros</option>
+                    <option value="1" (click)="rodarSeta()">Comida</option>
+                    <option value="2" (click)="rodarSeta()">Bebida</option>
+                </select>
+                <div class="select-arrow"></div>
+            </div>            
         </div>
         <div class="wrapper">
             <input type="submit" value="Registrar" (click)="criarProduto()">
