@@ -59,6 +59,13 @@ export class CadastroComponent implements OnInit {
                 (response) => {
                     this.buscarProdutos();  // Atualiza a lista de produtos
                     this.snackBar.open("Produto cadastrado!", "OK!");
+                    this.produto={
+                      id: 0,
+                      nome: "",
+                      preco: 0,
+                      descricao: "",
+                      tipo: 0
+                    }
                 },
                 (error) => {
                     console.log(error);
