@@ -33,32 +33,44 @@ export class CadastroComponent implements OnInit {
   }
 
   criarProduto() {
+    // Trim nome e descricao do produto
     this.produto.nome = this.produto.nome?.trim();
     this.produto.descricao = this.produto.descricao?.trim();
 
-    const usuarioExistente = this.produtos?.find(
+    // Verifica se já existe um produto com o mesmo nome
+    const produtoExistente = this.produtos?.find(
       (element) => element.nome === this.produto.nome
     );
 
-    if (usuarioExistente) {
-      this.snackBar.open("Este produto já existe", "OK!");
+    if (produtoExistente) {
+        // Exibe mensagem se o produto já existe
+        this.snackBar.open("Este produto já existe", "OK!");
     } else {
-      if (this.produto.nome !== "" && this.produto.preco > 0) {
-        this.produtoService.inserirProduto(this.produto).subscribe(
-          (response) => {
-            this.buscarProdutos();
-            this.snackBar.open("Produto cadastrado!", "OK!");
-          },
-          (error) => {
-            console.log(error);
-            this.snackBar.open("Erro ao cadastrar produto!", "OK!");
-          }
-        );
-      } else {
-        this.snackBar.open("Nome ou preço do produto inválido!", "OK!");
-      }
+        // Substitui vírgula por ponto no preço e converte para número
+        const precoSanitizado = this.produto.preco.toString().replace(',', '.');
+        const precoNumerico = parseFloat(precoSanitizado);
+
+        // Verifica se o nome não é vazio e o preço é maior que 0
+        if (this.produto.nome !== "" && !isNaN(precoNumerico) && precoNumerico > 0) {
+            this.produto.preco = precoNumerico;  // Atualiza o preço do produto
+
+            // Chama o serviço para inserir o produto
+            this.produtoService.inserirProduto(this.produto).subscribe(
+                (response) => {
+                    this.buscarProdutos();  // Atualiza a lista de produtos
+                    this.snackBar.open("Produto cadastrado!", "OK!");
+                },
+                (error) => {
+                    console.log(error);
+                    this.snackBar.open("Erro ao cadastrar produto!", "OK!");
+                }
+            );
+        } else {
+            this.snackBar.open("Nome ou preço do produto inválido!", "OK!");
+        }
     }
   }
+
 
   buscarProdutos(): void {
     this.produtoService.buscarProduto()
