@@ -60,7 +60,7 @@ export class LoginComponent implements AfterViewInit{
     );
 
       if(usuarioExistente){
-        this.router.navigateByUrl( '/homeAdmin' );
+        this.router.navigateByUrl( '/consulta' );
       }
       else{
         this.snackBar.open("O Nome do adm ou a senha estão incorretos ou não existem!", "OK!");

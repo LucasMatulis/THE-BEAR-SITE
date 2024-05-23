@@ -82,7 +82,7 @@ mat-icon{
 }
 
 .footer{
-    background-color: black;
+    background-color: #131313;
     display: flex;
     flex-direction: column;
     justify-content: center;

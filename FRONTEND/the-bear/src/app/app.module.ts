@@ -27,6 +27,7 @@ import { FeedbackAdmComponent } from './components/feedback-adm/feedback-adm.com
 import { LocalizacaoComponent } from './components/localizacao/localizacao.component';
 import { PaginaCardapioComponent } from './components/pagina-cardapio/pagina-cardapio.component';
 import { HomeAdminComponent } from './components/home-admin/home-admin.component';
+import { HeaderAdmComponent } from './components/header-adm/header-adm.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { HomeAdminComponent } from './components/home-admin/home-admin.component
     FeedbackAdmComponent,
     LocalizacaoComponent,
     PaginaCardapioComponent,
-    HomeAdminComponent,    
+    HomeAdminComponent,
+    HeaderAdmComponent,    
   ],
   imports: [
     CommonModule,

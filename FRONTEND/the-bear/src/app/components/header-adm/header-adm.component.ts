@@ -2,12 +2,11 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  selector: 'app-header-adm',
+  templateUrl: './header-adm.component.html',
+  styleUrls: ['./header-adm.component.css']
 })
-export class HeaderComponent {
-
+export class HeaderAdmComponent {
   constructor(private router: Router) { }
 
   scrollToTop(): void {
