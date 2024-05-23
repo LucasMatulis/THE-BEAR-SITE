@@ -6,11 +6,11 @@
         <textarea style="resize: none;" name="feedback" id="feedback" rows="4" cols="10" required placeholder="Describe yourself here..."></textarea> 
         <label for="Nota">Nota:</label>
         <div id="Nota">
-            <button><img src="../../../assets/image/EstrelaCheia.png" alt=""></button>
-            <button><img src="../../../assets/image/EstrelaCheia.png" alt=""></button>
-            <button><img src="../../../assets/image/EstrelaVazia.png" alt=""></button>
-            <button><img src="../../../assets/image/EstrelaVazia.png" alt=""></button>
-            <button><img src="../../../assets/image/EstrelaVazia.png" alt=""></button>
+            <button (click)="nota(1)"><img id="estrela1" [src]="imagemEstrela1" alt="Nota por Estrela"></button>
+            <button (click)="nota(2)"><img id="estrela2" [src]="imagemEstrela2" alt="Nota por Estrela"></button>
+            <button (click)="nota(3)"><img id="estrela3" [src]="imagemEstrela3" alt="Nota por Estrela"></button>
+            <button (click)="nota(4)"><img id="estrela4" [src]="imagemEstrela4" alt="Nota por Estrela"></button>
+            <button (click)="nota(5)"><img id="estrela5" [src]="imagemEstrela5" alt="Nota por Estrela"></button>
         </div>
         <div style="display: flex; justify-content: center; align-items: center;">
             <input id="Enviar-Feed" type="submit" value="Enviar FeedBack">
