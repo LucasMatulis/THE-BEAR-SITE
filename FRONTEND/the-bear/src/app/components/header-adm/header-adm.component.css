@@ -9,8 +9,13 @@
     background-color: #131313;
     width: 100vw;
     border-bottom: #FFC700 2px solid;
+}
 
-
+#cabecalho-total{
+    display:  flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 #cabecalho-itens {
@@ -26,7 +31,7 @@
 #cabecalho-opcoes{
     display: flex;
     padding-left: 20px;
-    max-width: 400px;
+    max-width: 650px;
     width: 100%;
     justify-content: space-between;
     align-items: center;
@@ -50,4 +55,11 @@ a:hover, button:hover{
     text-decoration: none;
     color: white    ;
     cursor: pointer;
+}
+
+#sair{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100px;
 }

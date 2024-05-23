@@ -23,10 +23,12 @@ export class AppComponent implements OnInit {
   }
 
   updateRoles(url: string) {
-    if (url === '/' || url === '/cardapio') {
+    const editProdutoRegex = /^\/editProduto\/\d+$/;
+
+    if (url === '/' || url === '/cardapio' || url === '/feedback' || url === '/denuncia' || url === '/adm') {
       this.cliente = true;
       this.adm = false;
-    } else if (url === '/adm' || url === '/cadastro') {
+    } else if (url === '/cadastro' || url === '/consulta' || editProdutoRegex.test(url) || url === '/denunciaAdm' || url === '/feedbackAdm') {
       this.cliente = false;
       this.adm = true;
     } else {

@@ -1,11 +1,16 @@
 <div class="Header">
-    <div id="cabecalho-itens">
-        <a routerLink="/"><img id="logo" src="../../../assets/image/urso branco.png" alt="GamblingGuru"></a>
-        <div id="cabecalho-opcoes">
-            <button (click)="navigateAndScrollToTop()">Cadastrar Produto</button>
-            <a routerLink="/cardapio">Ver Produtos</a>
-            <button (click)="scrollToBottom()">Ver FeedBacks</button>
-            <button (click)="scrollToTop()">Ver Denuncias</button>
+    <div id="cabecalho-total">
+        <div id="cabecalho-itens">
+            <a routerLink="/consulta"><img id="logo" src="../../../assets/image/urso branco.png" alt="GamblingGuru"></a>
+            <div id="cabecalho-opcoes">
+                <a routerLink="/cadastro">Cadastrar Produto</a>
+                <a routerLink="/consulta">Ver Produtos</a>
+                <a routerLink="/feedbackAdm">Ver FeedBacks</a>
+                <a routerLink="/denunciaAdm">Ver Denuncias</a>
+            </div>
+        </div>
+        <div id="sair">
+            <a routerLink="/"> Sair</a>
         </div>
     </div>
 </div>

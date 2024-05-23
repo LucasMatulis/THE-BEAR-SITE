@@ -16,7 +16,6 @@ import { ConsultaComponent } from './components/consulta/consulta.component';
 import { MatTableModule } from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './components/footer/footer.component';
-import { CardapioHomeComponent } from './components/cardapio-home/cardapio-home.component';
 import { MatButtonModule } from '@angular/material/button';
 import { EditarProdutoComponent } from './components/editar-produto/editar-produto.component';
 import { CardapioComponent } from './components/cardapio/cardapio.component';
@@ -26,7 +25,6 @@ import { DenunciaAdmComponent } from './components/denuncia-adm/denuncia-adm.com
 import { FeedbackAdmComponent } from './components/feedback-adm/feedback-adm.component';
 import { LocalizacaoComponent } from './components/localizacao/localizacao.component';
 import { PaginaCardapioComponent } from './components/pagina-cardapio/pagina-cardapio.component';
-import { HomeAdminComponent } from './components/home-admin/home-admin.component';
 import { HeaderAdmComponent } from './components/header-adm/header-adm.component';
 
 
@@ -38,7 +36,6 @@ import { HeaderAdmComponent } from './components/header-adm/header-adm.component
     LandingComponent,
     CadastroComponent,
     FooterComponent,
-    CardapioHomeComponent,
     EditarProdutoComponent,
     FeedbackComponent,
     DenunciaComponent,
@@ -46,7 +43,6 @@ import { HeaderAdmComponent } from './components/header-adm/header-adm.component
     FeedbackAdmComponent,
     LocalizacaoComponent,
     PaginaCardapioComponent,
-    HomeAdminComponent,
     HeaderAdmComponent,    
   ],
   imports: [
