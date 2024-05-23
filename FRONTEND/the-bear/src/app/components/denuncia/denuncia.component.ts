@@ -26,16 +26,14 @@ export class DenunciaComponent {
   }
 
   criarDenuncia() {
-
-    if(this.denuncia.nome=="")
-      this.denuncia.nome="Anonimo"
-
     this.denuncia.nome = this.denuncia.nome?.trim();
     this.denuncia.texto = this.denuncia.texto?.trim();
     
     this.denuncia.dataCriacao = new Date();
 
     if (this.denuncia.texto !== "") {
+      if(this.denuncia.nome=="")
+        this.denuncia.nome="Anonimo"
       this.denunciaService.inserirDenuncia(this.denuncia).subscribe(
         response => {
           this.snackBar.open("Denúncia criada com sucesso!", "OK!");

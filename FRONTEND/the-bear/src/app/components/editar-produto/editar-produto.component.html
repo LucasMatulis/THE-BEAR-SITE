@@ -7,7 +7,7 @@
             <label>Nome</label>
             <input type="text" name="nomeprod" id="nomeprod" placeholder="Nome do produto: " [(ngModel)]="produto.nome">
             <label>Preço</label>
-            <input type="text" name="precoprod" id="precoprod" placeholder="Preço: " [(ngModel)]="produto.preco">
+            <input type="text" name="precoprod" id="precoprod" placeholder="Preço: " [(ngModel)]="produto.preco" onlyDouble>
             <label>Descrição</label>
             <input type="text" name="descprod" id="descprod" placeholder="Descrição: " [(ngModel)]="produto.descricao">
             <label>Tipo</label>

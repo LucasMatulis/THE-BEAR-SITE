@@ -27,6 +27,7 @@ import { LocalizacaoComponent } from './components/localizacao/localizacao.compo
 import { PaginaCardapioComponent } from './components/pagina-cardapio/pagina-cardapio.component';
 import { HeaderAdmComponent } from './components/header-adm/header-adm.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { OnlyDoubleDirective } from 'src/assets/directives/only-double.directive';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     FeedbackAdmComponent,
     LocalizacaoComponent,
     PaginaCardapioComponent,
-    HeaderAdmComponent,    
+    HeaderAdmComponent,   
+    OnlyDoubleDirective, 
   ],
   imports: [
     MatTooltipModule,
