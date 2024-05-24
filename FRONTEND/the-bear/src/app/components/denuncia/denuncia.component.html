@@ -3,7 +3,7 @@
         <label for="nome">Nome:(Opcional)</label>
         <input type="text" name="nome" id="nome" placeholder="Nome:(Opcional)" [(ngModel)]="denuncia.nome">
         <label for="feedback">Denuncia:</label>
-        <textarea style="resize: none;" name="feedback" id="feedback" rows="4" cols="10" required placeholder="Describe yourself here..." [(ngModel)]="denuncia.texto"></textarea> 
+        <textarea style="resize: none;" name="feedback" id="feedback" rows="4" cols="10" required placeholder="Escreva sua Denúncia aqui..." [(ngModel)]="denuncia.texto"></textarea> 
         <div style="display: flex; justify-content: center; align-items: center;">
             <input id="Enviar-Feed" type="submit" value="Enviar Denúncia" (click)="criarDenuncia()">
         </div>
