@@ -29,6 +29,8 @@ import { HeaderAdmComponent } from './components/header-adm/header-adm.component
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { OnlyDoubleDirective } from 'src/assets/directives/only-double.directive';
 import { SobreNosComponent } from './components/sobre-nos/sobre-nos.component';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { SobreNosComponent } from './components/sobre-nos/sobre-nos.component';
     LocalizacaoComponent,
     PaginaCardapioComponent,
     HeaderAdmComponent,   
-    OnlyDoubleDirective, SobreNosComponent, 
+    OnlyDoubleDirective, 
+    SobreNosComponent, 
+    ConfirmDialogComponent, 
   ],
   imports: [
     MatTooltipModule,
@@ -62,7 +66,8 @@ import { SobreNosComponent } from './components/sobre-nos/sobre-nos.component';
     HttpClientModule,
     MatSnackBarModule,
     MatIconModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

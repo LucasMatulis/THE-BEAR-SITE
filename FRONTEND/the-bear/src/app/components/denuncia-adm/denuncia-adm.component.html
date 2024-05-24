@@ -10,7 +10,7 @@
                     <div class="avaliacao">
                         <h2>Id: {{denuncia.id}}</h2>
                     </div>
-                    <h2 id="data">Data: {{denuncia.dataCriacao}}</h2>
+                    <h2 id="data">Data: {{ denuncia.dataCriacao | date:'dd/MM/yyyy HH:mm' }}</h2>
                     <div class="verMais">
                         <h2>Ver Mais</h2>
                         <img id="maismenos" [src]="isExpanded[i] ? '../../../assets/image/Menos.png' : maismenos" alt="" (click)="AbrirFeed(i)">

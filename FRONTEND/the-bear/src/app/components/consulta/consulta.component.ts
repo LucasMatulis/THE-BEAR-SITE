@@ -12,6 +12,10 @@ import { catchError, of } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
+
+
 
 @Component({
   selector: 'app-consulta',
@@ -22,7 +26,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     FormsModule,
     MatTableModule, MatIconModule,
     MatPaginatorModule, MatButtonModule,
-    MatSortModule, MatTooltipModule 
+    MatSortModule, MatTooltipModule,
+    MatDialogModule 
   ],
 })
 export class ConsultaComponent implements AfterViewInit {
@@ -35,6 +40,7 @@ export class ConsultaComponent implements AfterViewInit {
     private router: Router,
     private produtoService: ProdutoService,
     private snackBar : MatSnackBar,
+    public dialog: MatDialog,
   ) {}
 
   @ViewChild(MatSort)
@@ -73,20 +79,20 @@ export class ConsultaComponent implements AfterViewInit {
     this.router.navigateByUrl('/cadastro');
   }
 
-  removerProduto(id:number) {
-    if(id==undefined){
-      this.snackBar.open("O ID está vazio!", "OK!");
-      return;
-    }
+  removerProduto(id: number): void {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent);
 
-    if(id != undefined) this.produtoService.removerProduto(id)
-    .subscribe({
-      next: (res) => {
-        this.buscarProdutos();
-        if(res) console.log(res);
-      },
-      error: (erro) => {
-        console.log(erro);
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.produtoService.removerProduto(id).subscribe({
+          next: (res) => {
+            this.buscarProdutos();
+            if (res) console.log(res);
+          },
+          error: (erro) => {
+            console.log(erro);
+          }
+        });
       }
     });
   }
