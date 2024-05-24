@@ -2,15 +2,16 @@
     <div class="FeedBackAdm-Conteudo">
         <h1>FEEDBACKS</h1>
         <div class="tabelas">
-            <div class="tabela-linha">
-                <h2>Nome: </h2>
-                <div id="avalizacao">
-                    <h2>Avalização:</h2>
-                    <img src="../../../assets/image/EstrelaCheia.png" alt="">
-                    <img src="../../../assets/image/EstrelaCheia.png" alt="">
-                    <img src="../../../assets/image/EstrelaCheia.png" alt="">
-                    <img src="../../../assets/image/EstrelaCheia.png" alt="">
-                    <img src="../../../assets/image/EstrelaCheia.png" alt="">
+            <div *ngFor="let feedback of feedBackDataSource.data" class="tabela-linha">
+                <div class="nome">
+                    <h2>Nome: {{ feedback.nome }}</h2>
+                </div>
+                <div class="avaliacao">
+                    <h2>Avaliação:</h2>
+                    <ng-container *ngFor="let star of [1,2,3,4,5]">
+                        <img class="estrela" *ngIf="star <= feedback.nota" src="../../../assets/image/EstrelaCheia.png" alt="">
+                        <img class="estrela" *ngIf="star > feedback.nota" src="../../../assets/image/EstrelaVazia.png" alt="">
+                    </ng-container>
                 </div>
                 <div class="verMais">
                     <h2>Ver Mais</h2>

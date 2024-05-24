@@ -2,37 +2,38 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 100vh;
 }
 
 .FeedBackAdm-Conteudo {
     display: flex;
     flex-direction: column;
     padding-top: 30px;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
-    width: 1400px;
+    width: 80%;
+    max-width: 1400px;
     height: 600px;
     color: white;
 }
 
 .tabelas {
-    overflow: scroll;
-    overflow-x: hidden;
-    width: 80%;
+    overflow: auto;
+    width: 100%;
     height: 88%;
 }
 
-.verMais{
-    position: relative;
+.verMais {
+    margin-top: 15px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 10px;
+    height: 20px;
     background-color: #131313;
     color: white;
-    top:5px;
-    right: 5px;
+    margin-left: 10px;
 }
 
 .tabela-linha {
@@ -45,37 +46,43 @@
     border: #FFC700 2px solid;
     color: white;
     margin-bottom: 10px;
-    margin-right: 10px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    width: 100%;
 }
 
-
-
-.tabela-linha>h2 {
-    padding-top: 15px;
-    padding-right: 10px;
-    padding-left: 10px;
+.tabela-linha > h2 {
     font-size: 16px;
 }
 
-#avalizacao {
-    padding-top: 15px;
-    padding-right: 10px;
-    padding-left: 10px;
-    font-size: 16px;
+.avaliacao {
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 30%; /* Definir largura para alinhamento consistente */
+    box-sizing: border-box; /* Inclui padding e border na largura total */
+    text-align: center; /* Alinha o texto centralizado */
 }
 
-#avalizacao>img {
-    padding-top: 5px;
-    padding-left: 10px;
+.avaliacao > h2, .nome > h2 {
+    margin: 0; /* Remove margem padrão */
+    padding-right: 10px;
+    font-size: 16px;
+}
+
+.nome{
+    max-width: 200px;
+    max-height: 20px;
+    width: 500px;
+    height: 30px;
+    margin-bottom: 12px;
+}
+
+.estrela {
     width: 20px;
     height: 20px;
 }
-
-#avalizacao>h2 {
-    font-size: 15px;
-}
-
 
 ::-webkit-scrollbar,
 ::-webkit-scrollbar-thumb,
@@ -103,7 +110,7 @@
     background-size: contain;
 }
 
-#maismenos{
+#maismenos {
     height: 20px;
     width: 20px;
     padding-bottom: 12px;

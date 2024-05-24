@@ -21,7 +21,7 @@ export class FeedbackAdmComponent implements AfterViewInit {
   ) {}
   
   feedBackDataSource = new MatTableDataSource<Feedback>();
-  maismenos: string = '../../../assets/image/Menos.png'
+  maismenos: string = '../../../assets/image/Mais.png'
 
   ngAfterViewInit() {
     this.buscarFeedBack();
@@ -33,7 +33,10 @@ export class FeedbackAdmComponent implements AfterViewInit {
         this.feedBackDataSource.data = feedbacks;
       },
       (error) => {
-        console.error('Erro ao buscar produtos:', error);
+        console.error('Erro ao buscar feedbacks:', error);
+        this.snackBar.open('Erro ao buscar feedbacks', 'Fechar', {
+          duration: 3000,
+        });
       }
     );
   }
