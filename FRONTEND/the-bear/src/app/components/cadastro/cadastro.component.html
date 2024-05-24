@@ -4,12 +4,12 @@
     </div>
     <form action="">
         <div class="inputs">
-            <label>Nome do Produto</label>
-            <input type="text" name="nomeprod" id="nomeprod" placeholder="Nome do produto: " [(ngModel)]="produto.nome">
-            <label>Preço do Produto</label>
-            <input type="text" name="precoprod" id="precoprod" placeholder="Preço: " [(ngModel)]="produto.preco" onlyDouble>
+            <label>Nome do Produto:</label>
+            <input type="text" name="nomeprod" id="nomeprod" placeholder="Nome do produto: (Obrigatório)" [(ngModel)]="produto.nome">
+            <label>Preço do Produto:</label>
+            <input type="text" name="precoprod" id="precoprod" placeholder="Preço: (Obrigatório)" [(ngModel)]="produto.preco" onlyDouble>
             <label>Descrição do Produto</label>
-            <input type="text" name="descprod" id="descprod" placeholder="Descrição:(Opcional) " [(ngModel)]="produto.descricao">
+            <input type="text" name="descprod" id="descprod" placeholder="Descrição: (Opcional)" [(ngModel)]="produto.descricao">
             <label>Qual é o Tipo desse Produto?</label>
             <div class="wrapper-select">
                 <select name="tipoprod" id="tipoprod" [(ngModel)]="produto.tipo" (click)="rodarSeta()">
