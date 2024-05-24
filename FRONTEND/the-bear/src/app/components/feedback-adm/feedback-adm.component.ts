@@ -17,11 +17,12 @@ export class FeedbackAdmComponent implements AfterViewInit {
     private _liveAnnouncer: LiveAnnouncer,
     private router: Router,
     private feedbackService: FeedbackService,
-    private snackBar : MatSnackBar,
+    private snackBar: MatSnackBar
   ) {}
   
   feedBackDataSource = new MatTableDataSource<Feedback>();
-  maismenos: string = '../../../assets/image/Mais.png'
+  maismenos: string = '../../../assets/image/Mais.png';
+  isExpanded: boolean[] = [];
 
   ngAfterViewInit() {
     this.buscarFeedBack();
@@ -31,6 +32,7 @@ export class FeedbackAdmComponent implements AfterViewInit {
     this.feedbackService.buscarFeedBack().subscribe(
       (feedbacks) => {
         this.feedBackDataSource.data = feedbacks;
+        this.isExpanded = new Array(feedbacks.length).fill(false);
       },
       (error) => {
         console.error('Erro ao buscar feedbacks:', error);
@@ -41,7 +43,7 @@ export class FeedbackAdmComponent implements AfterViewInit {
     );
   }
 
-  AbrirFeed() {
-    // Função para abrir feedback (implementação não fornecida)
+  AbrirFeed(index: number) {
+    this.isExpanded[index] = !this.isExpanded[index];
   }
 }

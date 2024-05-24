@@ -2,20 +2,26 @@
     <div class="FeedBackAdm-Conteudo">
         <h1>FEEDBACKS</h1>
         <div class="tabelas">
-            <div *ngFor="let feedback of feedBackDataSource.data" class="tabela-linha">
-                <div class="nome">
-                    <h2>Nome: {{ feedback.nome }}</h2>
+            <div *ngFor="let feedback of feedBackDataSource.data; let i = index" class="tabela-linha" [class.expanded]="isExpanded[i]">
+                <div class="tabela-fechado">
+                    <div class="nome">
+                        <h2>Nome: {{ feedback.nome }}</h2>
+                    </div>
+                    <div class="avaliacao">
+                        <h2>Avaliação:</h2>
+                        <ng-container *ngFor="let star of [1,2,3,4,5]">
+                            <img class="estrela" *ngIf="star <= feedback.nota" src="../../../assets/image/EstrelaCheia.png" alt="">
+                            <img class="estrela" *ngIf="star > feedback.nota" src="../../../assets/image/EstrelaVazia.png" alt="">
+                        </ng-container>
+                    </div>
+                    <div class="verMais">
+                        <h2>Ver Mais</h2>
+                        <img id="maismenos" [src]="isExpanded[i] ? '../../../assets/image/Menos.png' : maismenos" alt="" (click)="AbrirFeed(i)">
+                    </div>
                 </div>
-                <div class="avaliacao">
-                    <h2>Avaliação:</h2>
-                    <ng-container *ngFor="let star of [1,2,3,4,5]">
-                        <img class="estrela" *ngIf="star <= feedback.nota" src="../../../assets/image/EstrelaCheia.png" alt="">
-                        <img class="estrela" *ngIf="star > feedback.nota" src="../../../assets/image/EstrelaVazia.png" alt="">
-                    </ng-container>
-                </div>
-                <div class="verMais">
-                    <h2>Ver Mais</h2>
-                    <img id="maismenos" [src]="maismenos" alt="" (click)="AbrirFeed()">
+                <div class="textoFeedBack">
+                    <h2> FeedBack:</h2>
+                    <pre>{{ feedback.texto }}</pre>
                 </div>
             </div>
         </div>
