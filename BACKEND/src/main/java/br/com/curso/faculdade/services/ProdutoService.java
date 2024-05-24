@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
-import br.com.curso.faculdade.entities.Adm;
 import br.com.curso.faculdade.entities.Produto;
 import br.com.curso.faculdade.repositories.ProdutoRepository;
 

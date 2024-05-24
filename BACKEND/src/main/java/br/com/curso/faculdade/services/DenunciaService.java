@@ -1,13 +1,15 @@
 package br.com.curso.faculdade.services;
 
 
+import java.text.ParseException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
-import br.com.curso.faculdade.entities.Adm;
 import br.com.curso.faculdade.entities.Denuncia;
 import br.com.curso.faculdade.repositories.DenunciaRepository;
 
@@ -16,6 +18,16 @@ public class DenunciaService {
 
     @Autowired
     DenunciaRepository denunciaRepository;
+
+
+    @Bean
+    public void instanciarDenuncia() throws ParseException{
+        Denuncia denuncia1= new Denuncia("Carlinhos", "Privada do banheiro masculino, estava quebrada.");
+        Denuncia denuncia2= new Denuncia("Maria", "Corrimão da escada está quebrado.", true);
+        Denuncia denuncia3= new Denuncia("Anonimo", "Corrimão da escada está quebrado.");
+
+        denunciaRepository.saveAll(Arrays.asList(denuncia1,denuncia2,denuncia3));
+    }
 
 
     public List<Denuncia> findAll() {

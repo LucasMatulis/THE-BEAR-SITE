@@ -45,6 +45,18 @@ public class Denuncia implements Serializable {
         this.resolvido = false;
     }
 
+    public Denuncia(String nome, String texto) {
+        this.nome = nome;
+        this.texto = texto;
+        this.resolvido = false;
+    }
+
+    public Denuncia(String nome, String texto, boolean resolvido) {
+        this.nome = nome;
+        this.texto = texto;
+        this.resolvido = resolvido;
+    }
+
     public Denuncia(String texto) {
         this.texto = texto;
         this.resolvido = false;

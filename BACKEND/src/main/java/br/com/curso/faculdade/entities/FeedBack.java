@@ -35,6 +35,12 @@ public class FeedBack implements Serializable {
         this.nota = nota;
     }
 
+    public FeedBack(String nome, String texto, Double nota) {
+        this.nome = nome;
+        this.texto = texto;
+        this.nota = nota;
+    }
+
     public FeedBack(String texto, Double nota) {
         this.texto = texto;
         this.nota = nota;

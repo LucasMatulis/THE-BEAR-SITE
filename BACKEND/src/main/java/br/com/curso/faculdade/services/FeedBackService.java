@@ -1,12 +1,16 @@
 package br.com.curso.faculdade.services;
 
 
+import java.text.ParseException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
+import br.com.curso.faculdade.entities.Denuncia;
 import br.com.curso.faculdade.entities.FeedBack;
 import br.com.curso.faculdade.repositories.FeedBackRepository;
 
@@ -16,6 +20,14 @@ public class FeedBackService {
     @Autowired
     FeedBackRepository feedBackRepository;
 
+    @Bean
+    public void instanciarFeedBack() throws ParseException{
+        FeedBack feedBack1= new FeedBack("Carlinhos", "Privada do banheiro masculino, estava quebrada.",3.0);
+        FeedBack feedBack2= new FeedBack("Maria", "Corrimão da escada está quebrado.", 5.0);
+        FeedBack feedBack3= new FeedBack("Anonimo", "Corrimão da escada está quebrado.", 1.0);
+
+        feedBackRepository.saveAll(Arrays.asList(feedBack1,feedBack2,feedBack3));
+    }
 
     public List<FeedBack> findAll() {
         List<FeedBack> feedBack = feedBackRepository.findAll();
