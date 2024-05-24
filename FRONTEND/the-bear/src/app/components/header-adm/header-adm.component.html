@@ -1,12 +1,12 @@
 <div class="Header">
     <div id="cabecalho-total">
         <div id="cabecalho-itens">
-            <a routerLink="/consulta" matTooltip="Consultar Produtos"><img id="logo" src="../../../assets/image/urso branco.png" alt="GamblingGuru"></a>
+            <button (click)="navigateAndScrollToTop('/consulta')" matTooltip="Consultar Produtos"><img id="logo" src="../../../assets/image/urso branco.png" alt="GamblingGuru"></button>
             <div id="cabecalho-opcoes">
-                <a routerLink="/cadastro">Cadastrar Produto</a>
-                <a routerLink="/consulta">Ver Produtos</a>
-                <a routerLink="/feedbackAdm">Ver FeedBacks</a>
-                <a routerLink="/denunciaAdm">Ver Denuncias</a>
+                <button (click)="navigateAndScrollToTop('/cadastro')">Cadastrar Produto</button>
+                <button (click)="navigateAndScrollToTop('/consulta')">Ver Produtos</button>
+                <button (click)="navigateAndScrollToTop('/feedbackAdm')">Ver FeedBacks</button>
+                <button (click)="navigateAndScrollToTop('/denunciaAdm')">Ver Denuncias</button>
             </div>
         </div>
         <div id="sair">

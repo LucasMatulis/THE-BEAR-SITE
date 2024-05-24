@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.curso.faculdade.entities.Adm;
 import br.com.curso.faculdade.entities.Denuncia;
 import br.com.curso.faculdade.repositories.DenunciaRepository;
 
@@ -35,6 +36,16 @@ public class DenunciaService {
 
       public Denuncia cadastrarDenuncia(Denuncia denuncia) {
         return denunciaRepository.save(denuncia);
+    }
+
+    public Denuncia atualizarDenuncia(Integer id, Denuncia denuncia) {
+        Denuncia alterado = findById(id);
+        if(alterado != null){
+            alterado.setResolvido(denuncia.isResolvido());
+
+            return denunciaRepository.save(alterado);
+        }
+        return null;
     }
 
     public void deletar(Integer id) {

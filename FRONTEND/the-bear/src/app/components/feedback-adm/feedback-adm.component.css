@@ -70,6 +70,30 @@
     border-top: #FFC700 2px solid;
 }
 
+.textoFeedBack > button{
+    margin-top: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    width: fit-content;
+    background-color: #D9D9D9;
+    color: black;
+    font-size: 20px;
+    height: 50px;
+    width: 200px;
+}
+
+.textoFeedBack > button:hover{
+    padding-right: 20px;
+    padding-left: 20px;
+    width: fit-content;
+    background-color: red;
+    color: white;
+    font-size: 24px;
+    height: 70px;
+    width: 220px;
+    border-color: white;
+}
+
 pre {
     padding: 10px;
     border: white 2px solid;

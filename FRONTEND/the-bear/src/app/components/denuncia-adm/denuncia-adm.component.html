@@ -1,1 +1,35 @@
-<p>denuncia-adm works!</p>
+<div class="FeedBackAdm">
+    <div class="FeedBackAdm-Conteudo">
+        <h1>DENÚNCIAS</h1>
+        <div class="tabelas">
+            <div *ngFor="let denuncia of denunciaDataSource.data; let i = index" class="tabela-linha" [class.expanded]="isExpanded[i]">
+                <div class="tabela-fechado">
+                    <div class="nome">
+                        <h2>Nome: {{ denuncia.nome }}</h2>
+                    </div>
+                    <div class="avaliacao">
+                        <h2>Id: {{denuncia.id}}</h2>
+                    </div>
+                    <h2 id="data">Data: {{denuncia.dataCriacao}}</h2>
+                    <div class="verMais">
+                        <h2>Ver Mais</h2>
+                        <img id="maismenos" [src]="isExpanded[i] ? '../../../assets/image/Menos.png' : maismenos" alt="" (click)="AbrirFeed(i)">
+                    </div>
+                </div>
+                <div class="textoFeedBack">
+                    <ng-container *ngIf="denuncia.resolvido; else elseBlock">
+                        <h2 style="color: green;">Status: Resolvido</h2>
+                    </ng-container>
+                    <ng-template #elseBlock>
+                        <h2 style="color: red;">Status: Em Aberto</h2>
+                    </ng-template>
+                    <pre>{{ denuncia.texto }}</pre>
+                    <div>
+                        <h2>Clique abaixo caso essa denúncia já tenha sido resolvida:</h2>
+                        <button (click)="fecharDenuncia(denuncia)">Resolvido</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

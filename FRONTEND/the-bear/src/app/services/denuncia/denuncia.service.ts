@@ -33,4 +33,8 @@ export class DenunciaService {
     return this.http.delete<boolean>(`${environment.urlApi}/denuncia/${id}`)
   }
 
+  atualizarDenuncia(denuncia?:Denuncia, id?: number) : Observable<boolean>{
+    if(!denuncia) return of(false);
+    return this.http.put<boolean>(`${environment.urlApi}/denuncia/${id}`, denuncia);
+  }
 }

@@ -18,8 +18,8 @@ export class FeedbackAdmComponent implements AfterViewInit {
     private router: Router,
     private feedbackService: FeedbackService,
     private snackBar: MatSnackBar
-  ) {}
-  
+  ) { }
+
   feedBackDataSource = new MatTableDataSource<Feedback>();
   maismenos: string = '../../../assets/image/Mais.png';
   isExpanded: boolean[] = [];
@@ -46,4 +46,25 @@ export class FeedbackAdmComponent implements AfterViewInit {
   AbrirFeed(index: number) {
     this.isExpanded[index] = !this.isExpanded[index];
   }
+
+  // Método para remover feedback
+  removerFeedback(id: number) {
+    this.feedbackService.removerFeedback(id).subscribe(
+      (success) => {
+        if (success) {
+          // Feedback removido com sucesso
+          // Recarrega a página para refletir as alterações
+          location.reload();
+        } else {
+          // Falha ao remover feedback
+          console.error('Falha ao remover feedback!');
+        }
+      },
+      (error) => {
+        // Erro ao fazer a requisição
+        console.error('Erro ao remover feedback:', error);
+      }
+    );
+  }
+
 }

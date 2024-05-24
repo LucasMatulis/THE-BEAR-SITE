@@ -9,11 +9,13 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import br.com.curso.faculdade.entities.Adm;
 import br.com.curso.faculdade.entities.Denuncia;
 import br.com.curso.faculdade.services.DenunciaService;
 
@@ -50,6 +52,12 @@ public class DenunciaResource {
         denuncia = denunciaService.cadastrarDenuncia(denuncia);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(denuncia.getId()).toUri();
         return ResponseEntity.created(uri).body(denuncia);   
+    }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Denuncia> atualizarPessoa(@PathVariable Integer id, @RequestBody Denuncia denuncia){
+        Denuncia alterado = denunciaService.atualizarDenuncia(id, denuncia);
+        return ResponseEntity.ok().body(alterado);
     }
 
 
