@@ -20,9 +20,11 @@ export class DenunciaAdmComponent  implements AfterViewInit {
     private snackBar: MatSnackBar
   ) { }
 
-  denunciaDataSource = new MatTableDataSource<Denuncia>();
+  denunciaAbertaDataSource = new MatTableDataSource<Denuncia>();
+  denunciaResolvidaDataSource = new MatTableDataSource<Denuncia>();
   maismenos: string = '../../../assets/image/Mais.png';
-  isExpanded: boolean[] = [];
+  isAbertaExpanded: boolean[] = [];
+  isResolvidaExpanded: boolean[] = [];
 
   ngAfterViewInit() {
     this.buscardenuncia();
@@ -31,8 +33,12 @@ export class DenunciaAdmComponent  implements AfterViewInit {
   buscardenuncia(): void {
     this.denunciaService.buscarDenuncia().subscribe(
       (denuncias) => {
-        this.denunciaDataSource.data = denuncias;
-        this.isExpanded = new Array(denuncias.length).fill(false);
+        const abertas = denuncias.filter(denuncia => !denuncia.resolvido);
+        const resolvidas = denuncias.filter(denuncia => denuncia.resolvido);
+        this.denunciaAbertaDataSource.data = abertas;
+        this.denunciaResolvidaDataSource.data = resolvidas;
+        this.isAbertaExpanded = new Array(abertas.length).fill(false);
+        this.isResolvidaExpanded = new Array(resolvidas.length).fill(false);
       },
       (error) => {
         console.error('Erro ao buscar denúncias:', error);
@@ -43,30 +49,27 @@ export class DenunciaAdmComponent  implements AfterViewInit {
     );
   }
 
-  AbrirFeed(index: number) {
-    this.isExpanded[index] = !this.isExpanded[index];
+  AbrirFeed(index: number, type: string) {
+    if (type === 'aberta') {
+      this.isAbertaExpanded[index] = !this.isAbertaExpanded[index];
+    } else {
+      this.isResolvidaExpanded[index] = !this.isResolvidaExpanded[index];
+    }
   }
 
-  // Método para remover denuncia
-  fecharDenuncia(denuncia: Denuncia) {
-    denuncia.resolvido=true
+  fecharDenuncia(denuncia: Denuncia, resolvido: boolean) {
+    denuncia.resolvido = resolvido;
     this.denunciaService.atualizarDenuncia(denuncia, denuncia.id).subscribe(
       (success) => {
         if (success) {
-          // denuncia removido com sucesso
-          // Recarrega a página para refletir as alterações
           location.reload();
         } else {
-          // Falha ao remover denuncia
-          console.error('Falha ao remover denuncia!');
+          console.error('Falha ao atualizar denúncia!');
         }
       },
       (error) => {
-        // Erro ao fazer a requisição
-        console.error('Erro ao remover denuncia:', error);
+        console.error('Erro ao atualizar denúncia:', error);
       }
     );
   }
-
-
 }
