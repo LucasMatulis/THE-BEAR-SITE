@@ -37,6 +37,8 @@ export class DenunciaComponent {
       this.denunciaService.inserirDenuncia(this.denuncia).subscribe(
         response => {
           this.snackBar.open("Denúncia criada com sucesso!", "OK!");
+          this.denuncia.nome=""
+          this.denuncia.texto=""
         },
         error => {
           console.log(error);

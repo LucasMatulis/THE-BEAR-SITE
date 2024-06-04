@@ -64,11 +64,15 @@ export class EditarProdutoComponent implements OnInit {
     const usuarioExistente = this.produtos?.find(
       (element) =>element.nome === this.produto.nome && element.tipo===this.produto.tipo);
 
+      const produtoExistente = this.produtos?.find(
+        (element) => element.nome === this.produto.nome
+      );
+
     if( this.produto.nome.length == 0 || this.produto.preco == undefined ) {
       this.snackBar.open("O Nome do produto ou preço esta vazio!", "OK!");
       return;
     }
-    if (usuarioExistente) {
+    if (usuarioExistente || produtoExistente) {
       this.snackBar.open("Este produto já existe", "OK!");
 
     }else{
