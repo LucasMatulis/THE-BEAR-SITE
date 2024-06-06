@@ -18,7 +18,7 @@ export class EditarProdutoComponent implements OnInit {
     nome: "",
     preco: 0,
     descricao: "",
-    tipo:0
+    tipo: 0
   };
 
   id: number = Number(this.route.snapshot.paramMap.get('id'));
@@ -32,7 +32,6 @@ export class EditarProdutoComponent implements OnInit {
 
   ngOnInit(): void {
     this.buscarProdutos();
-
     this.buscarProduto(Number(this.id));
   }
 
@@ -54,58 +53,50 @@ export class EditarProdutoComponent implements OnInit {
       });
   }
 
-  atualizarProduto(){
-
+  atualizarProduto() {
     this.produto.nome = this.produto.nome?.trim();
-    this.produto.preco=this.produto.preco;
+    this.produto.preco = this.produto.preco;
     this.produto.descricao = this.produto.descricao?.trim();
-    this.produto.tipo=this.produto.tipo;
+    this.produto.tipo = this.produto.tipo;
 
-    const usuarioExistente = this.produtos?.find(
-      (element) =>element.nome === this.produto.nome && element.tipo===this.produto.tipo);
+    const produtoExistente = this.produtos?.find(
+      (element) => element.nome === this.produto.nome
+    );
 
-      const produtoExistente = this.produtos?.find(
-        (element) => element.nome === this.produto.nome
-      );
-
-    if( this.produto.nome.length == 0 || this.produto.preco == undefined ) {
-      this.snackBar.open("O Nome do produto ou preço esta vazio!", "OK!");
+    if (this.produto.nome.length == 0 || this.produto.preco == undefined) {
+      this.snackBar.open("O Nome do produto ou preço está vazio!", "OK!");
       return;
     }
-    if (usuarioExistente || produtoExistente) {
+
+    if (produtoExistente && produtoExistente.id !== this.produto.id) {
       this.snackBar.open("Este produto já existe", "OK!");
-
-    }else{
-
-      if(this.produto != undefined && this.produto.preco>0){ 
+    } else {
+      if (this.produto != undefined && this.produto.preco > 0) {
         this.produtoService.atualizarProduto(this.produto, this.produto.id)
-        .subscribe(
-          res => {
-            this.snackBar.open("Produto atualizado com sucesso!", "OK!");
-            console.log(res);
-          },
-          erro => {
-            console.log(erro)
-          }
-        );
-      }
-      else{
-        this.snackBar.open("Preço ou nome invalidos!", "OK!");
+          .subscribe(
+            res => {
+              this.snackBar.open("Produto atualizado com sucesso!", "OK!");
+              console.log(res);
+            },
+            erro => {
+              console.log(erro);
+            }
+          );
+      } else {
+        this.snackBar.open("Preço ou nome inválidos!", "OK!");
       }
     }
   }
 
-
-  buscarProdutos( ) : void {
+  buscarProdutos(): void {
     this.produtoService.buscarProduto()
-    .pipe(
-      catchError((error) => {
-        return of([]);
-      })
-    )
-    .subscribe((produtos) => {
-      this.produtos= produtos as Produto[];
-    });
+      .pipe(
+        catchError((error) => {
+          return of([]);
+        })
+      )
+      .subscribe((produtos) => {
+        this.produtos = produtos as Produto[];
+      });
   }
-
 }
